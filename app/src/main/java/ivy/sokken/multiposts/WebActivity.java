@@ -257,13 +257,13 @@ public class WebActivity extends Activity implements Variable {
             if (url.equals(TWITTER_LOGIN_URL)) {
 
                 // ユーザーエージェントをPCブラウザに変更
-                useragent = FIREFOX;
+                useragent = ANDROID;
             }
 
             // Twitter利用時
             else if (url.contains(TWITTER_COM_URL)) {
                 // ユーザーエージェントをPCブラウザに変更
-                useragent = FIREFOX;
+                useragent = ANDROID;
             }
 
             // Facebook利用時
