@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_web_top">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/ll_web_ctrl"
+        android:id="@+id/fl_web_brows"
+        android:layout_alignParentTop="true">
+
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/wv_webbrows_twitter"
+            android:visibility="gone" />
+
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/wv_webbrows_facebook"
+            android:visibility="gone" />
+
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/wv_webbrows_mixi"
+            android:visibility="gone" />
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/wv_webbrows_googleplus"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/ll_web_ctrl">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/iv_webbrows_twitter"
+            android:src = "@mipmap/logo_twitter"
+            android:scaleType="fitCenter"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/iv_webbrows_facebook"
+            android:src = "@mipmap/logo_facebook"
+            android:scaleType="fitCenter"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/iv_webbrows_home"
+            android:src = "@mipmap/webbrows_home"
+            android:scaleType="fitCenter"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/iv_webbrows_mixi"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/logo_mixi"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/iv_webbrows_googleplus"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/logo_googleplus"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</RelativeLayout>

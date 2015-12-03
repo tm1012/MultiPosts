@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="610px"
+                android:id="@+id/iv_top_head_logo"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/logo"
+                android:src="@mipmap/top_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/he"
+                android:id="@+id/tv_top_info1"
+                android:layout_centerHorizontal="true"
+                android:textSize="93px"
+                android:layout_below="@+id/iv_top_head_logo"
+                android:textColor="@android:color/black"
+                android:textIsSelectable="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/youkoso"
+                android:id="@+id/tv_top_info2"
+                android:layout_below="@+id/tv_top_info1"
+                android:layout_centerHorizontal="true"
+                android:textSize="93px"
+                android:textColor="@android:color/black" />
+
+            <ImageView
+                android:layout_width="400dp"
+                android:layout_height="100dp"
+                android:id="@+id/tv_top_next"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="57dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/black"
+                android:onClick="onClick"
+                android:scaleType="fitXY"
+                android:background="@drawable/top_next_button" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

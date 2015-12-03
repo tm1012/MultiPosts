@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:layout_width="80px"
+        android:layout_height="80px"
+        android:id="@+id/iv_main_header_logo"
+        android:src="@mipmap/main_logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="10px"
+        android:id="@+id/iv_main_header_line"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/dot_black"
+        android:layout_below="@+id/iv_main_header_logo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp"
+        android:clickable="false" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/iv_main_header_line"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="300px"
+                android:id="@+id/iv_main_cloud"
+                android:src="@mipmap/main_cloud"
+                android:scaleType="fitCenter"
+                android:layout_weight="1"
+                android:layout_gravity="bottom"
+                android:clickable="true"
+                android:onClick="onClick" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="300px"
+                android:id="@+id/iv_main_youtube"
+                android:src="@mipmap/main_youtube"
+                android:scaleType="fitCenter"
+                android:layout_weight="1"
+                android:layout_gravity="bottom"
+                android:clickable="true"
+                android:onClick="onClick" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="300px"
+                android:layout_height="300px"
+                android:id="@+id/iv_main_sns"
+                android:src="@mipmap/main_sns"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:onClick="onClick"
+                android:clickable="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="300px"
+                android:id="@+id/iv_main_mail"
+                android:src="@mipmap/main_mail"
+                android:scaleType="fitCenter"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:onClick="onClick" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="300px"
+                android:id="@+id/iv_main_setting"
+                android:src="@mipmap/main_setting"
+                android:scaleType="fitCenter"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:onClick="onClick" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
