@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:text="メールボックス"
+        android:id="@+id/mail_boxView"
+        android:layout_above="@+id/rendView"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/black"
+        android:textSize="45dp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="15px"
+        android:id="@+id/blacklineView"
+        android:src="@mipmap/dot_black"
+        android:scaleType="fitXY"
+        android:layout_marginTop="73dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="     受信"
+        android:id="@+id/rendView"
+        android:textSize="48dp"
+        android:textColor="@android:color/black"
+        android:background="#ff007cff"
+        android:paddingLeft="30dp"
+        android:layout_below="@+id/blacklineView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center_vertical" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="15px"
+        android:id="@+id/blacklineView2"
+        android:src="@mipmap/dot_black"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/rendView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="480dp"
+        android:layout_height="75dp"
+        android:text="アップデート: 2分前"
+        android:id="@+id/updateView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#A9A9A9"
+        android:textColor="@android:color/black"
+        android:textSize="35dp"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="140dp"
+        android:layout_height="75dp"
+        android:text="編集"
+        android:id="@+id/editView"
+        android:background="#A9A9A9"
+        android:textColor="#4169E1"
+        android:textSize="45dp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/mail_boxView"
+        android:layout_toEndOf="@+id/mail_boxView" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:id="@+id/deleteView"
+        android:src="@mipmap/post"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_below="@+id/blacklineView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="70dp"
+            android:id="@+id/rent_boxView"
+            android:src="@mipmap/inbox_100"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:text="受信ボックス"
+            android:id="@+id/rentboxtextView"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="66dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="35dp"
+            android:gravity="center|start"
+            android:layout_marginLeft="25dp" />
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="70dp"
+            android:id="@+id/backView"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:src="@mipmap/back_100" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="480dp"
+        android:layout_height="10px"
+        android:id="@+id/black_lineView"
+        android:src="@mipmap/dot_black"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:id="@+id/linearLayout2"
+        android:layout_below="@+id/black_lineView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="70dp"
+            android:id="@+id/starView"
+            android:src="@mipmap/star_filled_100"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:text="スター付き"
+            android:id="@+id/textView8"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="66dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="35dp"
+            android:gravity="center|start"
+            android:layout_marginLeft="25dp" />
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="70dp"
+            android:id="@+id/backView2"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:src="@mipmap/back_100" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="480dp"
+        android:layout_height="10px"
+        android:id="@+id/black_lineView2"
+        android:src="@mipmap/dot_black"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:id="@+id/linearLayout3"
+        android:layout_below="@+id/black_lineView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="70dp"
+            android:id="@+id/no_openView"
+            android:src="@mipmap/Maru"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:text="未開封"
+            android:id="@+id/textView9"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="66dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="35dp"
+            android:gravity="center|start"
+            android:layout_marginLeft="25dp" />
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="70dp"
+            android:id="@+id/backView3"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:src="@mipmap/back_100" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="15px"
+        android:id="@+id/blacklineView3"
+        android:src="@mipmap/dot_black"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="     送信"
+        android:id="@+id/sendView"
+        android:textSize="48dp"
+        android:textColor="@android:color/black"
+        android:background="#ff007cff"
+        android:paddingLeft="30dp"
+        android:layout_below="@+id/blacklineView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center_vertical" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="15px"
+        android:id="@+id/blacklineView4"
+        android:src="@mipmap/dot_black"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/sendView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:id="@+id/linearLayout4"
+        android:layout_below="@+id/blacklineView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="70dp"
+            android:id="@+id/wroteView"
+            android:src="@mipmap/document＿100"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:text="下書き"
+            android:id="@+id/textView11"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="66dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="35dp"
+            android:gravity="center|start"
+            android:layout_marginLeft="25dp" />
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="70dp"
+            android:id="@+id/backView4"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:src="@mipmap/back_100" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="480dp"
+        android:layout_height="10px"
+        android:id="@+id/black_lineView3"
+        android:src="@mipmap/dot_black"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/linearLayout4"
+        android:layout_alignLeft="@+id/black_lineView2"
+        android:layout_alignStart="@+id/black_lineView2" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:id="@+id/linearLayout5"
+        android:layout_below="@+id/black_lineView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="70dp"
+            android:id="@+id/rentView"
+            android:src="@mipmap/sent_filled_100"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:text="送信済み"
+            android:id="@+id/textView12"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="66dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="35dp"
+            android:gravity="center|start"
+            android:layout_marginLeft="25dp" />
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="70dp"
+            android:id="@+id/backView5"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:src="@mipmap/back_100" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="10px"
+        android:id="@+id/blacklineView5"
+        android:src="@mipmap/dot_black"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/linearLayout5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:id="@+id/linearLayout6"
+        android:layout_below="@+id/blacklineView5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="70dp"
+            android:id="@+id/trashView"
+            android:src="@mipmap/trash_100"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:text="ごみ箱"
+            android:id="@+id/trashboxView"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="66dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="35dp"
+            android:gravity="center|start"
+            android:layout_marginLeft="25dp" />
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="70dp"
+            android:id="@+id/backView6"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:src="@mipmap/back_100" />
+    </LinearLayout>
+
+
+</RelativeLayout>

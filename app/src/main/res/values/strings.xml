@@ -5,4 +5,18 @@
     <string name="he">へ</string>
     <string name="youkoso">ようこそ</string>
     <string name="tudukeru">つづける</string>
+
+
+    <string name="userhinttext">ユーザー名</string>
+    <string name="passhinttext">パスワード</string>
+    <string name="serverhinttext">サーバー</string>
+    <string name="porthinttext">ポート</string>
+
+    <string name="searchtext">検索</string>
+
+    <string-array name="spinner_array">
+        <item>ゆ</item>
+        <item>き</item>
+        <item>む</item>
+    </string-array>
 </resources>

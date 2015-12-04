@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="受信"
+        android:id="@+id/renttextView"
+        android:textSize="50dp"
+        android:textColor="@android:color/black"
+        android:layout_above="@+id/blacklineView"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:id="@+id/returnView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@mipmap/return_100" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="10px"
+        android:id="@+id/blacklineView"
+        android:src="@mipmap/dot_black"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/returnView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/deleteView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@mipmap/post" />
+
+    <TextView
+        android:layout_width="480dp"
+        android:layout_height="75dp"
+        android:text="アップデート: 2分前"
+        android:id="@+id/updatetextView"
+        android:background="#A9A9A9"
+        android:textColor="@android:color/black"
+        android:textSize="35dp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="140dp"
+        android:layout_height="75dp"
+        android:text="編集"
+        android:id="@+id/editView"
+        android:background="#A9A9A9"
+        android:textColor="#4169E1"
+        android:textSize="45dp"
+        android:gravity="center"
+        android:layout_alignTop="@+id/updatetextView"
+        android:layout_alignRight="@+id/deleteView"
+        android:layout_alignEnd="@+id/deleteView" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@+id/blacklineView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#A9A9A9"
+        android:id="@+id/frameLayout">
+
+        <EditText
+            android:layout_width="570dp"
+            android:layout_height="42dp"
+            android:id="@+id/searchText"
+            android:layout_gravity="center"
+            android:layout_marginTop="3px"
+            android:text="検索"
+            android:textSize="20dp"
+            android:textColor="#A9A9A9"
+            android:gravity="center" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="145dp"
+        android:layout_below="@+id/frameLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout7">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:id="@+id/flagView"
+                    android:src="@mipmap/star_filled_100"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/addressText"
+                    android:layout_weight="6"
+                    android:text="Test@test.co.jp"
+                    android:textSize="45dp"
+                    android:textColor="@android:color/black"
+                    android:gravity="bottom"
+                    android:layout_marginLeft="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/dayText"
+                    android:layout_weight="2"
+                    android:text="水曜日"
+                    android:textColor="#A9A9A9"
+                    android:textSize="25dp"
+                    android:gravity="center" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:id="@+id/moveView"
+                    android:src="@mipmap/back_gray_100"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5.5">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Doraemon"
+                    android:id="@+id/titleView"
+                    android:textColor="@android:color/black"
+                    android:textSize="25dp"
+                    android:layout_marginLeft="62dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="4.5"
+                android:layout_marginLeft="62dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="ドラえもんは東京に行って、お土産を買ってこず、新宿の映画館で映画をみたらしい。"
+                    android:id="@+id/contentView"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
