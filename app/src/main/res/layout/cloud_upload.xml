@@ -104,14 +104,14 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="135dp"
         android:layout_below="@+id/graylineView"
         android:id="@+id/linearLayout10">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="105dp"
             android:layout_below="@+id/graylineView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -177,39 +177,56 @@
             android:layout_marginTop="15dp" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="100dp"
-        android:id="@+id/textView4"
-        android:text="写真/動画"
-        android:textSize="50dp"
-        android:background="@drawable/layout_shape"
-        android:gravity="center"
-        android:layout_above="@+id/textView6"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="100dp"
-        android:text="音楽"
-        android:id="@+id/textView6"
-        android:layout_above="@+id/textView7"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@drawable/layout_shape"
-        android:textSize="50dp"
-        android:gravity="center" />
+        android:background="@drawable/layout_design">
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="100dp"
-        android:text="その他"
-        android:id="@+id/textView7"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4"
-        android:background="@drawable/layout_shape"
-        android:textSize="50dp"
-        android:gravity="center" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/textView4"
+            android:text="写真/動画"
+            android:textSize="50dp"
+            android:background="@drawable/layout_design"
+            android:gravity="center"
+            android:layout_above="@+id/textView6"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:text="音楽"
+            android:id="@+id/textView6"
+            android:layout_above="@+id/textView7"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/layout_design"
+            android:textSize="50dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:text="その他"
+            android:id="@+id/textView7"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignStart="@+id/textView4"
+            android:background="@drawable/layout_design"
+            android:textSize="50dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
 
 </RelativeLayout>
