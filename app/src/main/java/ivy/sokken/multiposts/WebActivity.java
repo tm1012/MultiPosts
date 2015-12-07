@@ -46,6 +46,7 @@ public class WebActivity extends Activity implements Variable {
     private Context context;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

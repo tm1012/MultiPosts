@@ -26,6 +26,10 @@
             android:name=".WebActivity"
             android:screenOrientation="unspecified"
             android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".TestActivity"
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize" />
     </application>
 
 </manifest>

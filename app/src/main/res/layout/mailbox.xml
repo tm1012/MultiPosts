@@ -199,7 +199,7 @@
             android:layout_width="90dp"
             android:layout_height="70dp"
             android:id="@+id/no_openView"
-            android:src="@mipmap/Maru"
+            android:src="@mipmap/maru"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp" />
 
@@ -274,7 +274,7 @@
             android:layout_width="90dp"
             android:layout_height="70dp"
             android:id="@+id/wroteView"
-            android:src="@mipmap/document＿100"
+            android:src="@mipmap/document_100"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp" />
 

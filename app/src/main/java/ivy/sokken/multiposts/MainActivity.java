@@ -48,15 +48,17 @@ public class MainActivity extends Activity implements Variable{
                 rg[GOOGLEPLUS] = (RadioGroup) findViewById(R.id.rg_sns_account_googleplus);
                 RadioButton[] rb = new RadioButton[4];
 
-                Intent intent = new Intent(MainActivity.this, WebActivity.class);
+                Intent intent = new Intent(this, TestActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                /*
 
                 for (int i = 0; i < rg.length; i++) {
                     rb[i] = (RadioButton) findViewById(rg[i].getCheckedRadioButtonId());
                     intent.putExtra(USER[i], rb[i].getText());
                     intent.putExtra(PASS[i], rb[i].getHint());
                 }
-
+                */
                 startActivity(intent);
             default:
                 break;
