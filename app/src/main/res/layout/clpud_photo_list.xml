@@ -205,7 +205,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Img.png"
+                android:text="ドラえもん.png"
                 android:id="@+id/filenameView2"
                 android:textColor="@android:color/black"
                 android:layout_weight="1"
@@ -225,7 +225,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="2015/12/7"
+                android:text="2015/1/30"
                 android:id="@+id/filedataView2"
                 android:textColor="@android:color/black"
                 android:layout_weight="1.5"
