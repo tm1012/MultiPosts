@@ -42,6 +42,7 @@ public class MainActivity extends Activity implements Variable{
 
             case R.id.iv_sns_account_footer_next:
 
+
                 RadioGroup[] rg = new RadioGroup[4];
                 rg[TWITTER] = (RadioGroup) findViewById(R.id.rg_sns_account_twitter);
                 rg[FACEBOOK] = (RadioGroup) findViewById(R.id.rg_sns_account_facebook);
