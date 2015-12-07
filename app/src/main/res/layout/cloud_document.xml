@@ -246,7 +246,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:id="@+id/graylineView3"
+            android:id="@+id/graylineView2"
             android:src="@mipmap/dot_gray"
             android:scaleType="fitXY"
             android:layout_below="@+id/linearLayout9"
