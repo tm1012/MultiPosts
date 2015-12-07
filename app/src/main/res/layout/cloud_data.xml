@@ -4,15 +4,15 @@
     android:background="@android:color/white">
 
     <TextView
-        android:layout_width="120dp"
+        android:layout_width="300dp"
         android:layout_height="70dp"
-        android:text="音楽"
-        android:id="@+id/musictextView"
+        android:text="ドキュメント"
+        android:id="@+id/documenttextView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="50dp"
+        android:textSize="45dp"
         android:textColor="@android:color/black"
-        android:gravity="center_horizontal" />
+        android:gravity="center" />
 
     <ImageView
         android:layout_width="90dp"
@@ -38,7 +38,7 @@
         android:id="@+id/blacklineView"
         android:src="@mipmap/dot_black"
         android:scaleType="fitXY"
-        android:layout_below="@+id/musictextView"
+        android:layout_below="@+id/documenttextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -121,7 +121,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/noteView"
+                android:id="@+id/pdfView"
                 android:layout_weight="1"
                 android:src="@mipmap/pdf_100"
                 android:scaleType="fitCenter"
@@ -138,7 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="ドラえもん解剖図.pdf"
-                    android:id="@+id/musictitleView"
+                    android:id="@+id/titleView"
                     android:layout_weight="1"
                     android:textColor="@android:color/black"
                     android:textSize="28dp"
@@ -148,7 +148,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=" 2015/10/12"
-                    android:id="@+id/musicdataView"
+                    android:id="@+id/dataView"
                     android:layout_weight="1"
                     android:textSize="28dp"
                     android:textColor="@android:color/black"
@@ -200,7 +200,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/imageView6"
+                android:id="@+id/xlsView"
                 android:layout_weight="1"
                 android:src="@mipmap/xls_100"
                 android:scaleType="fitCenter"
@@ -217,7 +217,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="ドラえもんの生態.xlmx"
-                    android:id="@+id/textView4"
+                    android:id="@+id/titleView2"
                     android:layout_weight="1"
                     android:textColor="@android:color/black"
                     android:textSize="28dp"
@@ -227,7 +227,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=" 2014/10/12"
-                    android:id="@+id/textView6"
+                    android:id="@+id/dataView2"
                     android:layout_weight="1"
                     android:textSize="28dp"
                     android:textColor="@android:color/black"
@@ -237,7 +237,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/imageView7"
+                android:id="@+id/cloudView2"
                 android:layout_weight="1.5"
                 android:src="@mipmap/download_from_cloud_100"
                 android:scaleType="fitXY" />
@@ -277,7 +277,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/imageView9"
+                android:id="@+id/txtView"
                 android:layout_weight="1"
                 android:src="@mipmap/txt_100"
                 android:scaleType="fitCenter"
@@ -294,7 +294,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="ドラえもんについて.txt"
-                    android:id="@+id/textView7"
+                    android:id="@+id/titleView3"
                     android:layout_weight="1"
                     android:textColor="@android:color/black"
                     android:textSize="28dp"
@@ -304,7 +304,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=" 2013/10/12"
-                    android:id="@+id/textView10"
+                    android:id="@+id/dataView3"
                     android:layout_weight="1"
                     android:textSize="28dp"
                     android:textColor="@android:color/black"
@@ -314,7 +314,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/imageView10"
+                android:id="@+id/cloudView3"
                 android:layout_weight="1.5"
                 android:src="@mipmap/download_from_cloud_100"
                 android:scaleType="fitXY" />
@@ -354,7 +354,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/imageView12"
+                android:id="@+id/docView"
                 android:layout_weight="1"
                 android:src="@mipmap/doc_100"
                 android:scaleType="fitCenter"
@@ -371,7 +371,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="ドラえもん家計図.doc"
-                    android:id="@+id/textView13"
+                    android:id="@+id/titleView4"
                     android:layout_weight="1"
                     android:textColor="@android:color/black"
                     android:textSize="28dp"
@@ -381,7 +381,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=" 2012/10/12"
-                    android:id="@+id/textView15"
+                    android:id="@+id/dataView4"
                     android:layout_weight="1"
                     android:textSize="28dp"
                     android:textColor="@android:color/black"
@@ -391,7 +391,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/imageView13"
+                android:id="@+id/cloudView4"
                 android:layout_weight="1.5"
                 android:src="@mipmap/download_from_cloud_100"
                 android:scaleType="fitXY" />
