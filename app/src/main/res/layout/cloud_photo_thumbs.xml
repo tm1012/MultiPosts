@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:textSize="50dp"
         android:textColor="@android:color/black"
-        android:gravity="center_horizontal" />
+        android:gravity="center" />
 
     <ImageView
         android:layout_width="90dp"
@@ -105,7 +105,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="560dp"
         android:layout_below="@+id/graylineView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
@@ -143,5 +143,15 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp" />
         </LinearLayout>
+
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imageView9"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@mipmap/plusfield" />
 </RelativeLayout>
