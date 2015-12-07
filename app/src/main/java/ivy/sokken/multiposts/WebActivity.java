@@ -5,10 +5,12 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.Gravity;
@@ -99,6 +101,7 @@ public class WebActivity extends Activity implements Variable {
 
         // ホームボタンのクリックリスナー
         ((ImageView) findViewById(R.id.iv_webbrows_home)).setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
@@ -155,6 +158,10 @@ public class WebActivity extends Activity implements Variable {
             // 動画再生用処理
             view.setWebChromeClient(new ViewChromeClient());
 
+            // 右端の余白を削除
+            view.setVerticalScrollbarOverlay(true);
+
+
             // WebView設定
             WebSettings ws = view.getSettings();
 
@@ -176,6 +183,11 @@ public class WebActivity extends Activity implements Variable {
             ws.setAppCacheMaxSize(32 * 1024 * 1024);
             // キャッシュ格納場所のパス
             ws.setAppCachePath("/data/data/" + getPackageName() + "/cache");
+            // ワイドビューポート
+            ws.setUseWideViewPort(true);
+            // ズームアウト
+            ws.setLoadWithOverviewMode(true);
+
 
             //zoom control
             ws.setBuiltInZoomControls(true);
@@ -216,13 +228,40 @@ public class WebActivity extends Activity implements Variable {
 
     }
 
+
+    // startActivityForResultから呼び出したIntentの戻り
     @Override
     protected void onActivityResult(int requestCode, int resultCode,Intent intent) {
+
+        // 送ったリザルトコードの引数と元のリザルトコードが一致すれば処理続行
         if (requestCode == FILE_CHOOSER_RESULT_CODE) {
+            // msgがなければ処理停止
             if ( mUploadMessage == null ){
                 return;
             }
-            Uri result = (intent == null || resultCode != RESULT_OK) ? null : intent.getData();
+
+            // ファイルのUri
+            Uri result;
+            if (intent == null || resultCode != RESULT_OK) {
+                result = null;
+            }
+            else {
+                // Uri取得
+                result = intent.getData();
+
+                // ファイルパス取得用カーソル
+                Cursor c = getContentResolver().query(result, null, null, null, null);
+
+                // カーソルがなければスキーマを変換しない
+                if(c != null) {
+                    // カーソルを最初に戻す
+                    c.moveToFirst();
+                    // ファイルパス取得
+                    result = Uri.parse(c.getString(c.getColumnIndex(MediaStore.MediaColumns.DATA)));
+                }
+            }
+
+            // 返す
             mUploadMessage.onReceiveValue(result);
             mUploadMessage = null;
         }
@@ -413,7 +452,6 @@ public class WebActivity extends Activity implements Variable {
                                          ValueCallback<Uri[]> filePathCallback,
                                          FileChooserParams fileChooserParams)
         {
-            Log.d(TAG, "onShowFileChooser started.");
             Toast.makeText(context, "ファイルを選択して下さい", Toast.LENGTH_LONG).show();
             super.onShowFileChooser(webView, filePathCallback, fileChooserParams);
             if( mUploadMessageForAfterLollipop != null) {
@@ -434,14 +472,11 @@ public class WebActivity extends Activity implements Variable {
         // input type="file" 対応 (androidOS 4.1)
         // 参考URL : http://qiita.com/masahide318/items/06af79ed8081ef725d76
         public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
-            Log.d(TAG, "openFileChooser start");
-            Log.d(TAG, "acceptType : " + acceptType);
-            Log.d(TAG, "capture : " + capture);
 
             mUploadMessage = uploadMsg;
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.addCategory(Intent.CATEGORY_OPENABLE);
-            intent.setType("file/*");
+            intent.setType("image/*");
             startActivityForResult(Intent.createChooser(intent, "選択"), FILE_CHOOSER_RESULT_CODE);
         }
 
