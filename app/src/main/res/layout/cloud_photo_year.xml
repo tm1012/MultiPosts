@@ -113,45 +113,80 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="140dp">
+            android:layout_height="140dp"
+            android:layout_margin="5dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/photoimageView"
-                android:layout_weight="1"
+                android:id="@+id/photoView"
+                android:layout_weight="1.5"
                 android:background="@android:color/black"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp" />
+                android:layout_margin="5dp" />
 
-            <ImageView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/photoimageView2"
-                android:layout_weight="1"
-                android:layout_margin="5dp"
-                android:background="@android:color/black" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/photoimageView3"
-                android:layout_weight="1"
-                android:background="@android:color/black"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp" />
+                android:text="2015"
+                android:id="@+id/dataView"
+                android:layout_weight="2.5"
+                android:textColor="@android:color/black"
+                android:textSize="50dp"
+                android:gravity="center" />
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:id="@+id/graylineView2"
+            android:layout_below="@+id/linearLayout16"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_margin="5dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/photoView2"
+                android:layout_weight="1.5"
+                android:background="@android:color/black"
+                android:layout_margin="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="2014"
+                android:id="@+id/dataView2"
+                android:layout_weight="2.5"
+                android:textColor="@android:color/black"
+                android:textSize="50dp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:id="@+id/graylineView3"
+            android:layout_below="@+id/linearLayout16"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray" />
     </LinearLayout>
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/plusView"
+        android:src="@mipmap/plusfield"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:src="@mipmap/plusfield" />
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
