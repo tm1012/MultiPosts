@@ -171,8 +171,12 @@ public class WebActivity extends Activity implements Variable {
             // キャッシュ設定
             ws.setAppCacheEnabled(true);
             // キャッシュモード（更新があれば再取得に設定）
-            ws.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-            //webView.getSettings().setAppCacheMaxSize(8 * 1024 * 1024);
+            ws.setCacheMode(WebSettings.LOAD_DEFAULT);
+            // キャッシュサイズ（byte）
+            ws.setAppCacheMaxSize(32 * 1024 * 1024);
+            // キャッシュ格納場所のパス
+            ws.setAppCachePath("/data/data/" + getPackageName() + "/cache");
+
             //zoom control
             ws.setBuiltInZoomControls(true);
 
@@ -262,13 +266,13 @@ public class WebActivity extends Activity implements Variable {
             if (url.equals(TWITTER_LOGIN_URL)) {
 
                 // ユーザーエージェントをPCブラウザに変更
-                useragent = ANDROID;
+                useragent = FIREFOX;
             }
 
             // Twitter利用時
             else if (url.contains(TWITTER_COM_URL)) {
                 // ユーザーエージェントをPCブラウザに変更
-                useragent = ANDROID;
+                useragent = FIREFOX;
             }
 
             // Facebook利用時
@@ -435,10 +439,10 @@ public class WebActivity extends Activity implements Variable {
             Log.d(TAG, "capture : " + capture);
 
             mUploadMessage = uploadMsg;
-            Intent i = new Intent(Intent.ACTION_GET_CONTENT);
-            i.addCategory(Intent.CATEGORY_OPENABLE);
-            i.setType("image/*");
-            startActivityForResult(Intent.createChooser(i, "title"), FILE_CHOOSER_RESULT_CODE);
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            intent.setType("file/*");
+            startActivityForResult(Intent.createChooser(intent, "選択"), FILE_CHOOSER_RESULT_CODE);
         }
 
         // input type="file" 対応 (androidOS 3.0 以上)
@@ -511,6 +515,7 @@ public class WebActivity extends Activity implements Variable {
 
     // WebView(SNS)切り替え用
     void setVisibility(int id) {
+
         for (WebView view : webView) {
             // 詰めて消す
             view.setVisibility(View.GONE);
