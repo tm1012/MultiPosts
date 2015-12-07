@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Data"
-            android:id="@+id/dataView"
+            android:id="@+id/datatextView"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="40dp"
@@ -246,7 +246,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:id="@+id/imageView8"
+            android:id="@+id/graylineView3"
             android:src="@mipmap/dot_gray"
             android:scaleType="fitXY"
             android:layout_below="@+id/linearLayout9"
@@ -309,21 +309,25 @@
                     android:textSize="28dp"
                     android:textColor="@android:color/black"
                     android:gravity="center_vertical" />
+
             </LinearLayout>
 
-            <ImageView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/cloudView3"
+                android:text="OPEN"
+                android:id="@+id/textView4"
                 android:layout_weight="1.5"
-                android:src="@mipmap/download_from_cloud_100"
-                android:scaleType="fitXY" />
+                android:textColor="#ff007cff"
+                android:textSize="22dp"
+                android:gravity="center" />
+
         </LinearLayout>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:id="@+id/imageView11"
+            android:id="@+id/graylineView4"
             android:src="@mipmap/dot_gray"
             android:scaleType="fitXY"
             android:layout_below="@+id/linearLayout9"
@@ -391,7 +395,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/cloudView4"
+                android:id="@+id/cloudView3"
                 android:layout_weight="1.5"
                 android:src="@mipmap/download_from_cloud_100"
                 android:scaleType="fitXY" />
@@ -400,7 +404,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:id="@+id/imageView14"
+            android:id="@+id/graylineView5"
             android:src="@mipmap/dot_gray"
             android:scaleType="fitXY"
             android:layout_below="@+id/linearLayout9"
@@ -408,5 +412,14 @@
             android:layout_alignParentStart="true"
             android:layout_marginTop="15dp" />
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/plusView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@mipmap/plusfield" />
 
 </RelativeLayout>
