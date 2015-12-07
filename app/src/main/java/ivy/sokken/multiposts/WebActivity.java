@@ -188,6 +188,10 @@ public class WebActivity extends Activity implements Variable {
 
         }
 
+
+        /*
+        最初に表示するWebViewとロードするページの設定
+        */
         if (USER_ACCOUNT[TWITTER][0].length() > 0) {
             showFlag = TWITTER;
             webView[0].loadUrl(TWITTER_LOGIN_URL);

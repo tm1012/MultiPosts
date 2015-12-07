@@ -41,6 +41,7 @@ public class MainActivity extends Activity implements Variable{
                 break;
 
             case R.id.iv_sns_account_footer_next:
+
                 RadioGroup[] rg = new RadioGroup[4];
                 rg[TWITTER] = (RadioGroup) findViewById(R.id.rg_sns_account_twitter);
                 rg[FACEBOOK] = (RadioGroup) findViewById(R.id.rg_sns_account_facebook);
@@ -48,17 +49,15 @@ public class MainActivity extends Activity implements Variable{
                 rg[GOOGLEPLUS] = (RadioGroup) findViewById(R.id.rg_sns_account_googleplus);
                 RadioButton[] rb = new RadioButton[4];
 
-                Intent intent = new Intent(this, TestActivity.class);
+                Intent intent = new Intent(this, WebActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-                /*
 
                 for (int i = 0; i < rg.length; i++) {
                     rb[i] = (RadioButton) findViewById(rg[i].getCheckedRadioButtonId());
                     intent.putExtra(USER[i], rb[i].getText());
                     intent.putExtra(PASS[i], rb[i].getHint());
                 }
-                */
+
                 startActivity(intent);
             default:
                 break;
