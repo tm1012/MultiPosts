@@ -257,6 +257,7 @@ public class WebActivity extends Activity implements Variable {
                     // ファイルパス取得
                     result = Uri.parse(c.getString(c.getColumnIndex(MediaStore.MediaColumns.DATA)));
                 }
+                Log.d("onActivityResult", result.toString());
             }
 
             // 返す

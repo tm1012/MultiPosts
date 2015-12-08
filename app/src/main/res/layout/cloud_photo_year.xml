@@ -6,13 +6,13 @@
     <TextView
         android:layout_width="120dp"
         android:layout_height="70dp"
-        android:text="音楽"
-        android:id="@+id/musictextView"
+        android:text="写真"
+        android:id="@+id/phototextView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textSize="50dp"
         android:textColor="@android:color/black"
-        android:gravity="center_horizontal" />
+        android:gravity="center" />
 
     <ImageView
         android:layout_width="90dp"
@@ -38,7 +38,7 @@
         android:id="@+id/blacklineView"
         android:src="@mipmap/dot_black"
         android:scaleType="fitXY"
-        android:layout_below="@+id/musictextView"
+        android:layout_below="@+id/phototextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -59,132 +59,134 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Name"
-            android:id="@+id/nameView"
-            android:layout_weight="1"
+            android:text="List"
+            android:id="@+id/listView"
             android:gravity="center"
-            android:textSize="40dp"
+            android:textSize="35dp"
             android:textColor="#ff007cff"
-            android:background="@drawable/layout_shape" />
+            android:background="@drawable/layout_shape"
+            android:layout_weight="1" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Data"
-            android:id="@+id/dataView"
-            android:layout_weight="1"
+            android:text="Thumbs"
+            android:id="@+id/thumbsView"
             android:gravity="center"
-            android:textSize="40dp"
+            android:textSize="35dp"
             android:textColor="#ff007cff"
-            android:background="@drawable/layout_shape" />
+            android:background="@drawable/layout_shape"
+            android:layout_weight="1" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Type"
-            android:id="@+id/typeView"
-            android:layout_weight="1"
-            android:textSize="40dp"
+            android:text="Year"
+            android:id="@+id/yearView"
+            android:textSize="35dp"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:background="@drawable/layout_line" />
+            android:background="@drawable/layout_line"
+            android:layout_weight="1" />
+
     </LinearLayout>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:id="@+id/graylineView"
-        android:src="@mipmap/dot_gray"
         android:scaleType="fitXY"
         android:layout_below="@+id/linearLayout9"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp"
+        android:background="@android:color/darker_gray" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_below="@+id/graylineView">
+        android:layout_height="560dp"
+        android:layout_below="@+id/graylineView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_below="@+id/graylineView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            android:layout_height="140dp"
+            android:layout_margin="5dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/noteView"
-                android:layout_weight="0.75"
-                android:src="@mipmap/kigou2"
-                android:scaleType="fitCenter"
-                android:layout_marginLeft="15dp" />
+                android:id="@+id/photoView"
+                android:layout_weight="1.5"
+                android:background="@android:color/black"
+                android:layout_margin="5dp" />
 
-            <LinearLayout
-                android:orientation="vertical"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
-                android:layout_marginLeft="50dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="ドラえもんのうた"
-                    android:id="@+id/musictitleView"
-                    android:layout_weight="1"
-                    android:textColor="@android:color/black"
-                    android:textSize="28dp"
-                    android:gravity="center_vertical" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text=" 2015/10/12"
-                    android:id="@+id/musicdataView"
-                    android:layout_weight="1"
-                    android:textSize="28dp"
-                    android:textColor="@android:color/black"
-                    android:gravity="center_vertical" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/imageView10"
-                android:layout_weight="2" />
-
+                android:text="2015"
+                android:id="@+id/dataView"
+                android:layout_weight="2.5"
+                android:textColor="@android:color/black"
+                android:textSize="50dp"
+                android:gravity="center" />
         </LinearLayout>
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:id="@+id/imageView11"
-            android:src="@mipmap/dot_gray"
-            android:scaleType="fitXY"
-            android:layout_below="@+id/linearLayout9"
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:id="@+id/graylineView2"
+            android:layout_below="@+id/linearLayout16"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="15dp" />
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_margin="5dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/photoView2"
+                android:layout_weight="1.5"
+                android:background="@android:color/black"
+                android:layout_margin="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="2014"
+                android:id="@+id/dataView2"
+                android:layout_weight="2.5"
+                android:textColor="@android:color/black"
+                android:textSize="50dp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:id="@+id/graylineView3"
+            android:layout_below="@+id/linearLayout16"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/textView4"
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/plusView"
+        android:src="@mipmap/plusfield"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/linearLayout9"
-        android:layout_alignStart="@+id/linearLayout9"
-        android:text="写真/動画/音楽/その他"
-        android:textSize="50dp"
-        android:textColor="@android:color/white"
-        android:background="#ff007cff"
-        android:gravity="center" />
-
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
