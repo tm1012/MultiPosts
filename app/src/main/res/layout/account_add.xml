@@ -161,7 +161,7 @@
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:id="@+id/imageView14"
-                android:src="@mipmap/logo_google_plus" />
+                android:src="@mipmap/logo_googleplus" />
 
             <TextView
                 android:layout_width="430dp"
