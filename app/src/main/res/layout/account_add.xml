@@ -68,217 +68,260 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:layout_alignTop="@+id/scrollView2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/linearLayout19">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="580dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="7dp">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageView11"
+                        android:src="@mipmap/logo_twitter_bird" />
+
+                    <TextView
+                        android:layout_width="430dp"
+                        android:layout_height="match_parent"
+                        android:text="Twitter"
+                        android:id="@+id/textView13"
+                        android:textSize="45dp"
+                        android:textColor="@android:color/black"
+                        android:gravity="left|center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="580dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="7dp">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageView12"
+                        android:src="@mipmap/logo_facebook" />
+
+                    <TextView
+                        android:layout_width="430dp"
+                        android:layout_height="match_parent"
+                        android:text="Facebook"
+                        android:id="@+id/textView15"
+                        android:gravity="left|center"
+                        android:textColor="@android:color/black"
+                        android:textSize="45dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="580dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="7dp">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageView13"
+                        android:src="@mipmap/logo_mixi" />
+
+                    <TextView
+                        android:layout_width="430dp"
+                        android:layout_height="match_parent"
+                        android:text="mixi"
+                        android:id="@+id/textView16"
+                        android:textSize="45dp"
+                        android:textColor="@android:color/black"
+                        android:gravity="left|center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="580dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="7dp">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageView14"
+                        android:src="@mipmap/logo_google_plus" />
+
+                    <TextView
+                        android:layout_width="430dp"
+                        android:layout_height="match_parent"
+                        android:text="Google +"
+                        android:id="@+id/textView17"
+                        android:textSize="45dp"
+                        android:textColor="@android:color/black"
+                        android:gravity="left|center" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_below="@+id/linearLayout19"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/linearLayout20">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="20px"
+                    android:id="@+id/imageView15"
+                    android:background="@android:color/black" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:text="Cloud"
+                    android:id="@+id/textView18"
+                    android:background="#ffffff"
+                    android:textColor="#ff007cff"
+                    android:textSize="60dp"
+                    android:paddingLeft="30dp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="20px"
+                    android:id="@+id/imageView17"
+                    android:background="@android:color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:layout_below="@+id/linearLayout20"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="7dp">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageView16"
+                        android:src="@mipmap/onedrive" />
+
+                    <TextView
+                        android:layout_width="430dp"
+                        android:layout_height="match_parent"
+                        android:text="One Drive"
+                        android:id="@+id/textView19"
+                        android:textSize="45dp"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="7dp">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageView18"
+                        android:src="@mipmap/google" />
+
+                    <TextView
+                        android:layout_width="430dp"
+                        android:layout_height="match_parent"
+                        android:text="Google Drive"
+                        android:id="@+id/textView20"
+                        android:textSize="45dp"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="7dp">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/imageView19"
+                        android:src="@mipmap/dropbox" />
+
+                    <TextView
+                        android:layout_width="430dp"
+                        android:layout_height="match_parent"
+                        android:text="Dropbox"
+                        android:id="@+id/textView21"
+                        android:textSize="45dp"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="20px"
+                android:id="@+id/imageView20"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:text="Mail"
+                android:id="@+id/textView23"
+                android:textColor="#ff007cff"
+                android:textSize="60dp"
+                android:paddingLeft="30dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="20px"
+                android:id="@+id/imageView21"
+                android:background="@android:color/black" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="7dp">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/imageView22"
+                    android:src="@mipmap/mail" />
+
+                <TextView
+                    android:layout_width="430dp"
+                    android:layout_height="match_parent"
+                    android:text="Mail"
+                    android:id="@+id/textView24"
+                    android:textSize="45dp"
+                    android:textColor="@android:color/black"
+                    android:singleLine="false" />
+            </LinearLayout>
+
         </LinearLayout>
+
     </ScrollView>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:layout_alignTop="@+id/scrollView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="84dp"
-        android:id="@+id/linearLayout19">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="580dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="7dp">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:id="@+id/imageView11"
-                android:src="@mipmap/logo_twitter_bird" />
-
-            <TextView
-                android:layout_width="430dp"
-                android:layout_height="match_parent"
-                android:text="Twitter"
-                android:id="@+id/textView13"
-                android:textSize="45dp"
-                android:textColor="@android:color/black"
-                android:gravity="left|center" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="580dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="7dp">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:id="@+id/imageView12"
-                android:src="@mipmap/logo_facebook" />
-
-            <TextView
-                android:layout_width="430dp"
-                android:layout_height="match_parent"
-                android:text="Facebook"
-                android:id="@+id/textView15"
-                android:gravity="left|center"
-                android:textColor="@android:color/black"
-                android:textSize="45dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="580dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="7dp">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:id="@+id/imageView13"
-                android:src="@mipmap/logo_mixi" />
-
-            <TextView
-                android:layout_width="430dp"
-                android:layout_height="match_parent"
-                android:text="mixi"
-                android:id="@+id/textView16"
-                android:textSize="45dp"
-                android:textColor="@android:color/black"
-                android:gravity="left|center" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="580dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="7dp">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:id="@+id/imageView14"
-                android:src="@mipmap/logo_google_plus" />
-
-            <TextView
-                android:layout_width="430dp"
-                android:layout_height="match_parent"
-                android:text="Google +"
-                android:id="@+id/textView17"
-                android:textSize="45dp"
-                android:textColor="@android:color/black"
-                android:gravity="left|center" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:layout_below="@+id/linearLayout19"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout20">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="20px"
-            android:id="@+id/imageView15"
-            android:background="@android:color/black" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:text="Cloud"
-            android:id="@+id/textView18"
-            android:background="#ffffff"
-            android:textColor="#ff007cff"
-            android:textSize="60dp"
-            android:paddingLeft="30dp" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="20px"
-            android:id="@+id/imageView17"
-            android:background="@android:color/black" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="210dp"
-        android:layout_below="@+id/linearLayout20"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="7dp">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:id="@+id/imageView16"
-                android:src="@mipmap/onedrive" />
-
-            <TextView
-                android:layout_width="430dp"
-                android:layout_height="match_parent"
-                android:text="One Drive"
-                android:id="@+id/textView19"
-                android:textSize="45dp"
-                android:textColor="@android:color/black" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="7dp">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:id="@+id/imageView18"
-                android:src="@mipmap/google" />
-
-            <TextView
-                android:layout_width="430dp"
-                android:layout_height="match_parent"
-                android:text="Google Drive"
-                android:id="@+id/textView20"
-                android:textSize="45dp"
-                android:textColor="@android:color/black" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="7dp">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:id="@+id/imageView19"
-                android:src="@mipmap/dropbox" />
-
-            <TextView
-                android:layout_width="430dp"
-                android:layout_height="match_parent"
-                android:text="Dropbox"
-                android:id="@+id/textView21"
-                android:textSize="45dp"
-                android:textColor="@android:color/black" />
-        </LinearLayout>
-    </LinearLayout>
 
 </RelativeLayout>
