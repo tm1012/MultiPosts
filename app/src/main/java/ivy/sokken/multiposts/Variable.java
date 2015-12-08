@@ -10,7 +10,8 @@ public interface Variable {
     int GOOGLEPLUS = 3;
 
     String FIREFOX = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0";
-    String ANDROID = "Mozilla/5.0 (Linux; U; Android 4.0.3; ja-jp;) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30";
+    String ANDROID = "Mozilla/5.0 (Linux; U; Android 3.0.1; ja-jp; A500 Build/HRI66) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13";
+    String DOCOMO = "DoCoMo/2.0";
 
     String TWITTER_COM_URL = "twitter.com/";
     String TWITTER_URL = "https://mobile.twitter.com/";
@@ -22,13 +23,15 @@ public interface Variable {
     String FACEBOOK_LOGIN_URL = "https://m.facebook.com";
     String FACEBOOK_LOGOUT_URL = "https://m.facebook.com/logout.php";
 
-    String MIXI_URL ="https://m.facebook.com";
-    String MIXI_LOGIN_URL = "https://m.facebook.com";
-    String MIXI_LOGOUT_URL = "https://m.facebook.com/logout.php";
+    String MIXI_JP_URL = "";
+    String MIXI_URL = "";
+    String MIXI_LOGIN_URL = "";
+    String MIXI_LOGOUT_URL = "";
 
-    String GOOGLEPLUS_URL ="https://m.facebook.com";
-    String GOOGLEPLUS_LOGIN_URL = "https://m.facebook.com";
-    String GOOGLEPLUS_LOGOUT_URL = "https://m.facebook.com/logout.php";
+    String PLUS_GOOGLE_COM_URL = "plus.google.com";
+    String GOOGLEPLUS_URL = "https://plus.google.com";
+    String GOOGLEPLUS_LOGIN_URL = "https://accounts.google.com/ServiceLogin?continue=https://plus.google.com/explore";
+    String GOOGLEPLUS_LOGOUT_URL = ".com/accounts/Logout";
 
 
     String YOUTUBE_URL = "youtube.com/";

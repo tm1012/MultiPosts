@@ -292,7 +292,9 @@
                                 android:layout_height="wrap_content"
                                 android:id="@+id/radioButton5"
                                 android:textSize="30dp"
-                                android:checked="true" />
+                                android:checked="true"
+                                android:text="ivytaro0123@gmail.com"
+                                android:hint="ilohas123" />
                         </RadioGroup>
                     </LinearLayout>
                 </LinearLayout>

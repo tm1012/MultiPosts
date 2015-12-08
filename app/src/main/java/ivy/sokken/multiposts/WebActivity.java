@@ -45,9 +45,6 @@ public class WebActivity extends Activity implements Variable {
     private final static int FILE_CHOOSER_RESULT_CODE = 1;
     private ValueCallback<Uri> mUploadMessage;
     private ValueCallback<Uri[]> mUploadMessageForAfterLollipop;
-    private Context context;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +53,6 @@ public class WebActivity extends Activity implements Variable {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
         // レイアウトを配置
         setContentView(R.layout.webbrows);
-
-        context = this.context;
 
         Intent intent = getIntent();
         // userとpassを受け取る
@@ -112,7 +107,7 @@ public class WebActivity extends Activity implements Variable {
                 }
 
                 // メイン画面遷移
-                Intent intent = new Intent(context, MainActivity.class);
+                Intent intent = new Intent(WebActivity.this, MainActivity.class);
                 // 遷移する際、現在のアクティビティを破棄
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 // 遷移先をホーム画面にセット。
@@ -183,11 +178,14 @@ public class WebActivity extends Activity implements Variable {
             ws.setAppCacheMaxSize(32 * 1024 * 1024);
             // キャッシュ格納場所のパス
             ws.setAppCachePath("/data/data/" + getPackageName() + "/cache");
-            // ワイドビューポート
+            // ワイドビューポート (ページのサイズが画面サイズよりも大きい場合に画面に収めるように縮小)
             ws.setUseWideViewPort(true);
+            // OverviewMode (ページが画面に収まるように自動で縮小)
+            ws.setLoadWithOverviewMode(true);
             // ズームアウト
             ws.setLoadWithOverviewMode(true);
-
+            // レンダー優先度高
+            ws.setRenderPriority(WebSettings.RenderPriority.HIGH);
 
             //zoom control
             ws.setBuiltInZoomControls(true);
@@ -321,6 +319,22 @@ public class WebActivity extends Activity implements Variable {
                 useragent = ANDROID;
 
             }
+
+            // mixi利用時
+            else if (url.contains(MIXI_URL)){
+
+                // ユーザーエージェントをDOCOMOブラウザに変更
+                useragent = ANDROID;
+
+            }
+
+            // Google+利用時
+            else if (url.contains(GOOGLEPLUS_URL)){
+
+                // ユーザーエージェントをDOCOMOブラウザに変更
+                useragent = ANDROID;
+
+            }
             else if (url.contains(YOUTUBE_URL)) {
             }
             else {
@@ -369,6 +383,22 @@ public class WebActivity extends Activity implements Variable {
                 // WebViewを可視化
                 setVisibility(showFlag);
                 ButtonEnable(FACEBOOK);
+
+            }
+
+            // Google+ログイン画面
+            else if (url.contains(GOOGLEPLUS_LOGIN_URL) && view.getTitle() != null && view.getTitle().equals("ログイン - Google アカウント")) {
+
+                // オートログイン処理
+                loadJS(view, "googleplus");
+            }
+
+            // Google+のログイン画面以外は可視化
+            else if (url.contains(GOOGLEPLUS_URL) && view.getTitle() != null  && !view.getTitle().equals("ログイン - Google アカウント")) {
+
+                // WebViewを可視化
+                setVisibility(showFlag);
+                ButtonEnable(GOOGLEPLUS);
 
             }
 
@@ -431,7 +461,7 @@ public class WebActivity extends Activity implements Variable {
             Log.d("onJsAlert", url);
             Log.d("onJsAlert", message);
             Log.d("onJsAlert", result.toString());
-            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+            Toast.makeText(WebActivity.this, message, Toast.LENGTH_LONG).show();
             //return super.onJsAlert(view, url, message, result);
             return true;
         }
@@ -452,7 +482,7 @@ public class WebActivity extends Activity implements Variable {
                                          ValueCallback<Uri[]> filePathCallback,
                                          FileChooserParams fileChooserParams)
         {
-            Toast.makeText(context, "ファイルを選択して下さい", Toast.LENGTH_LONG).show();
+            Toast.makeText(WebActivity.this, "ファイルを選択して下さい", Toast.LENGTH_LONG).show();
             super.onShowFileChooser(webView, filePathCallback, fileChooserParams);
             if( mUploadMessageForAfterLollipop != null) {
                 mUploadMessageForAfterLollipop.onReceiveValue(null);
@@ -594,8 +624,16 @@ public class WebActivity extends Activity implements Variable {
             // mixiオートログイン
 
         }
-        else if (false) {
+        else if (sns.equals("googleplus")) {
+
+            sb.append("javascript:document.getElementById(\"Email\").setAttribute(\"value\", \"");
+            sb.append(USER_ACCOUNT[GOOGLEPLUS][0]);
+            sb.append("\");document.getElementById(\"Passwd\").setAttribute(\"value\", \"");
+            sb.append(USER_ACCOUNT[GOOGLEPLUS][1]);
+            sb.append("\");document.getElementById(\"gaia_loginform\").submit();");
+
             // GooglePlusオートログイン
+            view.loadUrl(sb.toString());
 
         }
     }
