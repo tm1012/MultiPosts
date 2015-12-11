@@ -3,16 +3,13 @@ package ivy.sokken.multiposts;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
-public class MainActivity extends Activity implements Variable{
+public class MainActivity extends Activity implements Constants {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +29,7 @@ public class MainActivity extends Activity implements Variable{
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.tv_top_next:
+            case R.id.iv_top_next:
                 setContentView(R.layout.main);
                 break;
 
@@ -60,6 +57,7 @@ public class MainActivity extends Activity implements Variable{
                     intent.putExtra(PASS[i], rb[i].getHint());
                 }
 
+                intent = new Intent(this, TestActivity.class);
                 startActivity(intent);
             default:
                 break;

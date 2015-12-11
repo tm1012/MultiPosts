@@ -3,6 +3,8 @@
     package="ivy.sokken.multiposts" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="false"
@@ -24,6 +26,10 @@
         </activity>
         <activity
             android:name=".WebActivity"
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".TestActivity"
             android:screenOrientation="unspecified"
             android:configChanges="orientation|screenSize" />
     </application>

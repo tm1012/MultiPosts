@@ -2,7 +2,6 @@ package ivy.sokken.multiposts;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
@@ -27,13 +26,16 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import org.xwalk.core.XWalkView;
+
 import java.lang.reflect.Field;
 
 @SuppressWarnings("ALL")
-public class WebActivity extends Activity implements Variable {
+public class WebActivity extends Activity implements Constants {
 
     // WebView
     private WebView[] webView = new WebView[4];
+    private XWalkView[] xwebView = new XWalkView[4];
     // 下部ボタン
     private ImageView[] iv = new ImageView[4];
 
@@ -44,7 +46,7 @@ public class WebActivity extends Activity implements Variable {
 
     private final static int FILE_CHOOSER_RESULT_CODE = 1;
     private ValueCallback<Uri> mUploadMessage;
-    private ValueCallback<Uri[]> mUploadMessageForAfterLollipop;
+    private ValueCallback<Uri[]> uploadMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,10 +74,48 @@ public class WebActivity extends Activity implements Variable {
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        for (XWalkView xwv : xwebView) {
+            if (xwv != null) {
+                xwv.pauseTimers();
+                xwv.onHide();
+            }
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        for (XWalkView xwv : xwebView) {
+            if (xwv != null) {
+                xwv.resumeTimers();
+                xwv.onShow();
+            }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        for (XWalkView xwv : xwebView) {
+            if (xwv != null) {
+                xwv.onDestroy();
+            }
+        }
+    }
+
+
 
     // 初期　View取得まとめ
     void findViewById2() {
         customViewContainer = (FrameLayout) findViewById(R.id.fl_web_brows);
+
+        xwebView[TWITTER]= (XWalkView) findViewById(R.id.xwv_webbrows_twitter);
+        xwebView[FACEBOOK] = (XWalkView) findViewById(R.id.xwv_webbrows_facebook);
+        xwebView[MIXI] = (XWalkView) findViewById(R.id.xwv_webbrows_mixi);
+        xwebView[GOOGLEPLUS] = (XWalkView) findViewById(R.id.xwv_webbrows_googleplus);
 
         // WebView取得
         webView[TWITTER] = (WebView) findViewById(R.id.wv_webbrows_twitter);
@@ -208,19 +248,24 @@ public class WebActivity extends Activity implements Variable {
         */
         if (USER_ACCOUNT[TWITTER][0].length() > 0) {
             showFlag = TWITTER;
-            webView[0].loadUrl(TWITTER_LOGIN_URL);
+            //webView[TWITTER].loadUrl(TWITTER_LOGIN_URL);
+            xwebView[TWITTER].load(TWITTER_LOGIN_URL, null);
+            xwebView[TWITTER].setVisibility(View.VISIBLE);
         }
         if (USER_ACCOUNT[FACEBOOK][0].length() > 0) {
             if (showFlag < 0) showFlag = FACEBOOK;
-            webView[1].loadUrl(FACEBOOK_LOGIN_URL);
+            //webView[FACEBOOK].loadUrl(FACEBOOK_LOGIN_URL);
+            //xwebView[FACEBOOK].load(FACEBOOK_LOGIN_URL, null);
         }
         if (USER_ACCOUNT[MIXI][0].length() > 0) {
             if (showFlag < 0) showFlag = MIXI;
-            webView[2].loadUrl(MIXI_LOGIN_URL);
+            //webView[MIXI].loadUrl(MIXI_LOGIN_URL);
+            //xwebView[MIXI].load(MIXI_LOGIN_URL, null);
         }
         if (USER_ACCOUNT[GOOGLEPLUS][0].length() > 0) {
             if (showFlag < 0) showFlag = GOOGLEPLUS;
-            webView[3].loadUrl(GOOGLEPLUS_LOGIN_URL);
+            //webView[GOOGLEPLUS].loadUrl(GOOGLEPLUS_LOGIN_URL);
+            //xwebView[GOOGLEPLUS].load(GOOGLEPLUS_LOGIN_URL, null);
         }
 
 
@@ -233,8 +278,9 @@ public class WebActivity extends Activity implements Variable {
 
         // 送ったリザルトコードの引数と元のリザルトコードが一致すれば処理続行
         if (requestCode == FILE_CHOOSER_RESULT_CODE) {
-            // msgがなければ処理停止
-            if ( mUploadMessage == null ){
+
+            // msgがなければ
+            if ( mUploadMessage == null && uploadMessage == null ){
                 return;
             }
 
@@ -254,14 +300,23 @@ public class WebActivity extends Activity implements Variable {
                 if(c != null) {
                     // カーソルを最初に戻す
                     c.moveToFirst();
-                    // ファイルパス取得
-                    result = Uri.parse(c.getString(c.getColumnIndex(MediaStore.MediaColumns.DATA)));
+                    //　列指定
+                    String columns = MediaStore.MediaColumns.DATA;
+                    // 列番号取得
+                    int index = c.getColumnIndex(columns);
+
+                    // 列が見つかったら
+                    if( index > 0)
+                        // ファイルパス取得
+                        result = Uri.parse(c.getString(index));
+
+                    c.close();
                 }
-                Log.d("onActivityResult", result.toString());
             }
 
             // 返す
             mUploadMessage.onReceiveValue(result);
+            Log.d("onActivityResult", result.toString());
             mUploadMessage = null;
         }
     }
@@ -478,23 +533,24 @@ public class WebActivity extends Activity implements Variable {
         /**
          * input type="file" 対応 (androidOS 5.0 以上)
          */
-        @Override
+
         public boolean onShowFileChooser(WebView webView,
                                          ValueCallback<Uri[]> filePathCallback,
-                                         FileChooserParams fileChooserParams)
+                                         WebChromeClient.FileChooserParams fileChooserParams)
         {
+
             Toast.makeText(WebActivity.this, "ファイルを選択して下さい", Toast.LENGTH_LONG).show();
-            super.onShowFileChooser(webView, filePathCallback, fileChooserParams);
-            if( mUploadMessageForAfterLollipop != null) {
-                mUploadMessageForAfterLollipop.onReceiveValue(null);
-                mUploadMessageForAfterLollipop = null;
+            if( uploadMessage != null) {
+                uploadMessage.onReceiveValue(null);
+                uploadMessage = null;
             }
-            mUploadMessageForAfterLollipop = filePathCallback;
-            Intent i = fileChooserParams.createIntent();
+            uploadMessage = filePathCallback;
+            Intent intent = fileChooserParams.createIntent();
             try {
-                startActivityForResult(i, FILE_CHOOSER_RESULT_CODE);
+                WebActivity.this.startActivityForResult(intent,
+                        FILE_CHOOSER_RESULT_CODE);
             } catch (ActivityNotFoundException e) {
-                mUploadMessageForAfterLollipop = null;
+                uploadMessage = null;
                 return false;
             }
             return true;
@@ -582,7 +638,13 @@ public class WebActivity extends Activity implements Variable {
     // WebView(SNS)切り替え用
     void setVisibility(int id) {
 
+        /*
         for (WebView view : webView) {
+            // 詰めて消す
+            view.setVisibility(View.GONE);
+        }
+        */
+        for (XWalkView view : xwebView) {
             // 詰めて消す
             view.setVisibility(View.GONE);
         }
@@ -590,7 +652,8 @@ public class WebActivity extends Activity implements Variable {
         // 受け取った引数で可視化するWebViewを決定
         if (id != -1) {
             // 可視化
-            webView[id].setVisibility(View.VISIBLE);
+            //webView[id].setVisibility(View.VISIBLE);
+            xwebView[id].setVisibility(View.VISIBLE);
         }
     }
 

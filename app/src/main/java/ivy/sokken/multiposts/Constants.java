@@ -3,7 +3,7 @@ package ivy.sokken.multiposts;
 /**
  * Created by 131029 on 2015/12/01.
  */
-public interface Variable {
+public interface Constants {
     int TWITTER = 0;
     int FACEBOOK = 1;
     int MIXI = 2;

@@ -13,6 +13,35 @@
         android:id="@+id/fl_web_brows"
         android:layout_alignParentTop="true">
 
+        <org.xwalk.core.XWalkView
+            android:id="@+id/xwv_webbrows_twitter"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:visibility="gone" />
+        <org.xwalk.core.XWalkView
+            android:id="@+id/xwv_webbrows_facebook"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:visibility="gone" />
+        <org.xwalk.core.XWalkView
+            android:id="@+id/xwv_webbrows_mixi"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:visibility="gone" />
+        <org.xwalk.core.XWalkView
+            android:id="@+id/xwv_webbrows_googleplus"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:visibility="gone" />
+
         <WebView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
