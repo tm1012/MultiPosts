@@ -57,7 +57,7 @@ public class MainActivity extends Activity implements Constants {
                     intent.putExtra(PASS[i], rb[i].getHint());
                 }
 
-                intent = new Intent(this, TestActivity.class);
+                //intent = new Intent(this, TestActivity.class);
                 startActivity(intent);
             default:
                 break;

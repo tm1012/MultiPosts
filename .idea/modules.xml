@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MultiPosts.iml" filepath="$PROJECT_DIR$/MultiPosts.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crosswalkwebview154438412arm/crosswalkwebview154438412arm.iml" filepath="$PROJECT_DIR$/crosswalkwebview154438412arm/crosswalkwebview154438412arm.iml" />
     </modules>
   </component>
 </project>
