@@ -18,28 +18,27 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#818181"
-            android:visibility="visible" />
+            android:visibility="invisible" />
         <org.xwalk.core.XWalkView
             android:id="@+id/xwv_webbrows_facebook"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#818181"
+            android:background="#ffff00"
             android:visibility="invisible" />
         <org.xwalk.core.XWalkView
             android:id="@+id/xwv_webbrows_mixi"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#818181"
+            android:background="#0000ff"
             android:visibility="invisible" />
         <org.xwalk.core.XWalkView
             android:id="@+id/xwv_webbrows_googleplus"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#818181"
+            android:background="#00ffff"
             android:visibility="invisible" />
 
     </FrameLayout>
