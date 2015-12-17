@@ -11,35 +11,8 @@
         android:layout_alignParentStart="true"
         android:layout_above="@+id/ll_web_ctrl"
         android:id="@+id/fl_web_brows"
-        android:layout_alignParentTop="true">
-
-        <org.xwalk.core.XWalkView
-            android:id="@+id/xwv_webbrows_twitter"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="invisible" />
-        <org.xwalk.core.XWalkView
-            android:id="@+id/xwv_webbrows_facebook"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#ffff00"
-            android:visibility="invisible" />
-        <org.xwalk.core.XWalkView
-            android:id="@+id/xwv_webbrows_mixi"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#0000ff"
-            android:visibility="invisible" />
-        <org.xwalk.core.XWalkView
-            android:id="@+id/xwv_webbrows_googleplus"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#00ffff"
-            android:visibility="invisible" />
+        android:layout_alignParentTop="true"
+        android:background="@android:color/white">
 
     </FrameLayout>
 
@@ -58,7 +31,8 @@
             android:id="@+id/iv_webbrows_twitter"
             android:src = "@mipmap/logo_twitter"
             android:scaleType="fitCenter"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="onClick" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -66,7 +40,8 @@
             android:id="@+id/iv_webbrows_facebook"
             android:src = "@mipmap/logo_facebook"
             android:scaleType="fitCenter"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="onClick" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -74,7 +49,8 @@
             android:id="@+id/iv_webbrows_home"
             android:src = "@mipmap/webbrows_home"
             android:scaleType="fitCenter"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="onClick" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -82,7 +58,8 @@
             android:id="@+id/iv_webbrows_mixi"
             android:scaleType="fitCenter"
             android:src="@mipmap/logo_mixi"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="onClick" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -90,7 +67,8 @@
             android:id="@+id/iv_webbrows_googleplus"
             android:scaleType="fitCenter"
             android:src="@mipmap/logo_googleplus"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="onClick" />
 
     </LinearLayout>
 

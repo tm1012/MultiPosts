@@ -20,11 +20,15 @@ android {
     productFlavors {
     }
 }
-
+repositories {
+    maven {
+        url 'https://download.01.org/crosswalk/releases/crosswalk/android/maven2'
+    }
+}
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
-    compile project(':crosswalkwebview154438412arm')
+    compile 'org.xwalk:xwalk_core_library_beta:15.44.384.8'
 }

@@ -3,11 +3,11 @@ package ivy.sokken.multiposts;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import org.xwalk.core.XWalkView;
 
 public class MainActivity extends Activity implements Constants {
 
@@ -22,6 +22,9 @@ public class MainActivity extends Activity implements Constants {
             setContentView(R.layout.main);
         } else {
             setContentView(R.layout.top);
+
+            // バグ回避用（先にメモリ上にXWalkViewクラスを読み込ませる）
+            (new XWalkView(this, this)).load("", null);
         }
 
     }
@@ -65,27 +68,17 @@ public class MainActivity extends Activity implements Constants {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        menu.add(Menu.NONE, 0, 0, "メニュー1");
-        menu.add(Menu.NONE, 1, 1, "メニュー2");
-        return super.onCreateOptionsMenu(menu);
-        //return true;
+    protected void onPause() {
+        super.onPause();
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    protected void onResume() {
+        super.onResume();
+    }
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

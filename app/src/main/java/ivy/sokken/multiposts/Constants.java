@@ -1,8 +1,6 @@
 package ivy.sokken.multiposts;
 
-/**
- * Created by 131029 on 2015/12/01.
- */
+
 public interface Constants {
     int TWITTER = 0;
     int FACEBOOK = 1;
@@ -10,7 +8,8 @@ public interface Constants {
     int GOOGLEPLUS = 3;
 
     String FIREFOX = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0";
-    String ANDROID = "Mozilla/5.0 (Linux; U; Android 3.0.1; ja-jp; A500 Build/HRI66) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13";
+    String ANDROID_3_0_1 = "Mozilla/5.0 (Linux; U; Android 3.0; ja-jp; Xoom Build/HRI39) AppleWebKit/525.10  (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2";
+    String ANDROID_4_0_3 = "Mozilla/5.0 (Linux; U; Android 4.0.3; ja-jp; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.13";
     String DOCOMO = "DoCoMo/2.0";
 
     String TWITTER_COM_URL = "twitter.com/";
@@ -36,7 +35,7 @@ public interface Constants {
 
     String PLUS_GOOGLE_COM_URL = "plus.google.com";
     String GOOGLEPLUS_URL = "https://plus.google.com";
-    String GOOGLEPLUS_LOGIN_URL = "https://accounts.google.com/ServiceLogin?continue=https://plus.google.com/explore";
+    String GOOGLEPLUS_LOGIN_URL = "https://accounts.google.com/AddSession?continue=https://plus.google.com";
     String GOOGLEPLUS_LOGOUT_URL = ".com/accounts/Logout";
     String GOOGLEPLUS_USER_INPUT = "";
     String GOOGLEPLUS_PASS_INPUT = "";

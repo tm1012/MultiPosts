@@ -295,6 +295,16 @@
                                 android:checked="true"
                                 android:text="ivytaro0123@gmail.com"
                                 android:hint="ilohas123" />
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ivyaiko0123@gmail.com"
+                                android:id="@+id/radioButton50"
+                                android:textSize="30dp"
+                                android:hint="ilohas123" />
+
+
                         </RadioGroup>
                     </LinearLayout>
                 </LinearLayout>
