@@ -1,4 +1,4 @@
-package ivy.sokken.multiposts;
+package ivy.sokken.multiposts2;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -37,10 +37,8 @@ public class WebActivity extends Activity implements Constants {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // 画面自動回転
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-
         // レイアウトを配置
         setContentView(R.layout.webbrows);
 
@@ -53,9 +51,6 @@ public class WebActivity extends Activity implements Constants {
 
         // View取得
         findViewById2();
-
-        // 下部ボタン設定
-        bt_footer();
 
         // XWalkiew 初期設定
         xwbFirstSet();
@@ -87,20 +82,20 @@ public class WebActivity extends Activity implements Constants {
         iv[MIXI] = (ImageView) findViewById(R.id.iv_webbrows_mixi);
         iv[GOOGLEPLUS] = (ImageView) findViewById(R.id.iv_webbrows_googleplus);
 
-    }
-
-    //
-    void bt_footer() {
-        // ロードが完了していない又は、ログインしていないSNSはボタンの色を変更
+        // ボタン初期設定
         for (ImageView iv : this.iv) {
-            // ボタンをうすい灰色表示にする(非活性化ボタン風)
-            iv.setColorFilter(Color.GRAY & 0xd0FFFFFF);
+            iv.setBackgroundColor(Color.WHITE);
+            ButtonEnable(false, iv);
         }
 
     }
 
     // XWalkView初期設定
     void xwbFirstSet() {
+
+        // cookieマネージャーを使用
+        cookieManager = new XWalkCookieManager();
+
 
         for (final XWalkView xview : xWalkViews) {
 
@@ -111,7 +106,6 @@ public class WebActivity extends Activity implements Constants {
                     XWalkView xv = (XWalkView) v;
                     // 現在表示されているWebViewを指定
                     if ( keyCode == KeyEvent.KEYCODE_BACK
-                            && xv.getVisibility() == View.VISIBLE
                             && xv.getNavigationHistory().canGoBack() )
                     {
                         Log.d("aaaqaws", "1");
@@ -125,11 +119,6 @@ public class WebActivity extends Activity implements Constants {
                 }
             });
 
-            // キャッシュクリア有効
-            xview.clearCache(true);
-
-            // SNSリログ用にcookie等削除
-            removeCookies();
             //リソースクライアントをセット
             xview.setResourceClient(new ResourceClient(xview));
             //UIクライアントをセット
@@ -138,6 +127,8 @@ public class WebActivity extends Activity implements Constants {
 
         }
 
+        // SNSリログ用にcookie削除
+        removeCookies();
 
         /*
         最初に表示するWebViewとロードするページの設定
@@ -258,8 +249,6 @@ public class WebActivity extends Activity implements Constants {
 
                 // XWalkViewのロードを停止
                 xview.stopLoading();
-                // SNSリログ用にcookie削除
-                removeCookies();
                 // WebActivity終了
                 finish();
             }
@@ -274,23 +263,13 @@ public class WebActivity extends Activity implements Constants {
             super.onLoadStarted(xview, url);
 
             // ユーザーエージェント
-            String useragent;
+            String useragent
+                    = url.contains(M_FACEBOOK_COM_URL)
+                    || url.contains(MIXI_URL)
+                    || url.contains(GOOGLEPLUS_URL)
+                    || url.contains(GOOGLEPLUS_LOGIN_DOMAIN)
+                    || url.contains(YOUTUBE_URL) ? ANDROID_4_0_3 : FIREFOX;
 
-            switch (url) {
-                case M_FACEBOOK_COM_URL:   // Facebook利用時
-                case MIXI_URL:              // mixi利用時
-                case GOOGLEPLUS_URL:       // Google+利用時
-                case GOOGLEPLUS_LOGIN_URL:// Google+Login時
-                case YOUTUBE_URL:
-                    useragent = ANDROID_4_0_3;
-                    break;
-                case TWITTER_LOGIN_URL:     // TwitterログインURLアクセス時
-                case TWITTER_COM_URL:       // Twitter利用時
-                default:
-                    useragent = FIREFOX;
-                    break;
-
-            }
 
             Log.d("aaaonLoadStarted", url);
             Log.d("aaauseragent", useragent);
@@ -303,68 +282,65 @@ public class WebActivity extends Activity implements Constants {
         public void onLoadFinished(XWalkView xview , String url) {
             super.onLoadFinished(xview, url);
 
-            // Twitterログイン画面
-            if (url.equals("https://mobile.twitter.com/session/new")) {
-                // オートログイン処理
-                loadJS(xview, "twitter");
-            }
+            // どのXViewを表示するか
+            int Select_View = -1;
+            // どのJScriptを表示するか
+            int js = -1;
 
-            // Twitterのログイン画面以外は最大化
-            else if (url.contains(TWITTER_URL)) {
-                // XWalkViewを最大化
-                removeAddView(showFlag);
-                ButtonEnable(TWITTER);
-            }
+            if   // Twitterログイン画面 オートログイン処理
+                    (url.equals(TWITTER_LOGIN_URL)) {js = TWITTER;xview.stopLoading();}
 
-            // Facebookログイン画面
-            else if (url.contains(FACEBOOK_LOGIN_URL) && xview.getTitle() != null && xview.getTitle().equals("Facebookへようこそ")) {
-                // オートログイン処理
-                loadJS(xview, "facebook");
-            }
+            else // Facebookログイン画面 オートログイン処理
+                if (url.contains(FACEBOOK_LOGIN_URL)) {js = FACEBOOK;xview.stopLoading();}
 
-            // Facebookのログイン画面以外は最大化
-            else if (url.contains(FACEBOOK_URL) && xview.getTitle() != null  && !xview.getTitle().equals("Facebookへようこそ")) {
-                // XWalkViewを最大化
-                removeAddView(showFlag);
-                ButtonEnable(FACEBOOK);
-            }
+            else //Google+ログイン画面 オートログイン処理
+                if (url.contains(GOOGLEPLUS_LOGIN_DOMAIN)) {js = GOOGLEPLUS;xview.stopLoading();}
 
-            // Google+ログイン画面
-            else if (url.contains(GOOGLEPLUS_LOGIN_URL)) {
-                // オートログイン処理
-                loadJS(xview, "googleplus");
-            }
 
-            // Google+のログイン画面以外は最大化
-            else if (url.contains(GOOGLEPLUS_URL)) {
-                // XWalkViewを最大化
-                removeAddView(showFlag);
-                ButtonEnable(GOOGLEPLUS);
+            else // Twitterのログイン画面以外はボタン有効化
+                if (url.contains(TWITTER_URL)) {Select_View = TWITTER;xview.stopLoading();}
+
+            else // Facebookのログイン画面以外はボタン有効化
+                if (url.contains(FACEBOOK_URL)) {Select_View = FACEBOOK;xview.stopLoading();}
+
+            else // Google+のログイン画面以外はボタン有効化
+                if (url.contains(GOOGLEPLUS_URL)) {Select_View = GOOGLEPLUS;xview.stopLoading();}
+
+
+            if // Select_Viewに変更があればViewの切り替えと下部ボタンの設定変更
+                (Select_View >= 0) {
+
+                if // XWalkViewを入れ替え
+                    (showFlag == Select_View) removeAddView(showFlag);
+
+                // ログイン画面以外はボタン有効化
+                ButtonEnable(true, iv[Select_View]);
             }
+            // jsに変更があれば自動ログイン用Javascriptを実行
+            else if(js >= 0) loadJS(xview, js);
+
             Log.d("aaaonLoadFinished", url);
 
         }
 
-        /*
-        @Override
-        public WebResourceResponse shouldInterceptLoadRequest(XWalkView view, String url) {
-            try {
-
-                view.setAcce
-                URL u = new URL(url);
-                // HTTPコネクション取得
-                HttpURLConnection con = (HttpURLConnection) u.openConnection(Proxy.NO_PROXY);
-
-                // リクエストヘッダを設定
-                con.setRequestProperty("Accept-Language", "ja-JP");
-
-                return new WebResourceResponse(null, null, con.getInputStream());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return super.shouldInterceptLoadRequest(view, url);
-        }
-        */
+//        @Override
+//        public WebResourceResponse shouldInterceptLoadRequest(XWalkView view, String url) {
+//            try {
+//
+//                view.setAcce
+//                URL u = new URL(url);
+//                // HTTPコネクション取得
+//                HttpURLConnection con = (HttpURLConnection) u.openConnection(Proxy.NO_PROXY);
+//
+//                // リクエストヘッダを設定
+//                con.setRequestProperty("Accept-Language", "ja-JP");
+//
+//                return new WebResourceResponse(null, null, con.getInputStream());
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            return super.shouldInterceptLoadRequest(view, url);
+//        }
 
     }
 
@@ -408,45 +384,57 @@ public class WebActivity extends Activity implements Constants {
     }
 
     // Javascript
-    void loadJS(XWalkView xview, String sns) {
-
-        Log.d("aaaJavascript", sns);
+    void loadJS(XWalkView xview, int snsview) {
 
         StringBuilder sb = new StringBuilder();
 
-        switch (sns) {
-            case "twitter":
+        switch (snsview) {
+            case TWITTER:
 
                 // Twitterオートログイン
-                sb.append("javascript:document.getElementById(\"session[username_or_email]\").setAttribute(\"value\", \"");
+                sb.append("javascript:document.getElementById(\"");
+                sb.append(TWITTER_USER_INPUT_ID);
+                sb.append("\").setAttribute(\"value\", \"");
                 sb.append(USER_ACCOUNT[TWITTER][0]);
-                sb.append("\");document.getElementById(\"session[password]\").setAttribute(\"value\", \"");
+                sb.append("\");document.getElementById(\"");
+                sb.append(TWITTER_PASS_INPUT_ID);
+                sb.append("\").setAttribute(\"value\", \"");
                 sb.append(USER_ACCOUNT[TWITTER][1]);
                 sb.append("\");document.getElementsByTagName(\"form\")[0].submit();");
 
                 break;
-            case "facebook":
+            case FACEBOOK:
 
                 // Facebookオートログイン
-                sb.append("javascript:document.getElementsByName(\"email\")[0].setAttribute(\"value\", \"");
+                sb.append("javascript:document.getElementsByName(\"");
+                sb.append(FACEBOOK_USER_INPUT_NAME);
+                sb.append("\")[0].setAttribute(\"value\", \"");
                 sb.append(USER_ACCOUNT[FACEBOOK][0]);
-                sb.append("\");document.getElementsByName(\"pass\")[0].setAttribute(\"value\", \"");
+                sb.append("\");document.getElementsByName(\"");
+                sb.append(FACEBOOK_PASS_INPUT_NAME);
+                sb.append("\")[0].setAttribute(\"value\", \"");
                 sb.append(USER_ACCOUNT[FACEBOOK][1]);
                 sb.append("\");document.getElementsByTagName(\"form\")[0].submit();");
 
                 break;
-            case "mixi":
+            case MIXI:
                 // mixiオートログイン
 
                 break;
-            case "googleplus":
+            case GOOGLEPLUS:
 
                 // GooglePlusオートログイン
-                sb.append("javascript:document.getElementById(\"Email\").setAttribute(\"value\", \"");
+                sb.append("javascript:document.getElementById(\"");
+                sb.append(GOOGLEPLUS_USER_INPUT_ID);
+                sb.append("\").setAttribute(\"value\", \"");
                 sb.append(USER_ACCOUNT[GOOGLEPLUS][0]);
-                sb.append("\");document.getElementById(\"Passwd\").setAttribute(\"value\", \"");
+                sb.append("\");document.getElementById(\"");
+                sb.append(GOOGLEPLUS_PASS_INPUT_ID);
+                sb.append("\").setAttribute(\"value\", \"");
                 sb.append(USER_ACCOUNT[GOOGLEPLUS][1]);
-                sb.append("\");document.getElementById(\"gaia_loginform\").submit();");
+                sb.append("\");document.getElementById(\"");
+                sb.append(GOOGLEPLUS_FORM_ID);
+                sb.append("\").submit();");
 
                 break;
         }
@@ -457,15 +445,24 @@ public class WebActivity extends Activity implements Constants {
     }
 
     // 下部アカウントアイコンボタン有効設定
-    void ButtonEnable(int id) {
-        // グレーフィルター解除
-        iv[id].setColorFilter(0);
+    void ButtonEnable(boolean flg, ImageView iv) {
+
+        // ボタン有効無効設定
+        iv.setEnabled(flg);
+
+        if (flg) {
+            // グレーフィルター解除
+            iv.setColorFilter(0);
+        } else {
+            // ロードが完了していない又は、ログインしていないSNSはボタンの色を変更
+            // ボタンをうすい灰色表示にする(非活性化ボタン風)
+            iv.setColorFilter(Color.GRAY & 0xd0FFFFFF);
+        }
+
     }
 
     // cookie削除
     void removeCookies() {
-        // cookieマネージャーを使用
-        cookieManager = new XWalkCookieManager();
 
         // facebookはここでログアウトさせないので、cookieを退避
         String fCookie = cookieManager.getCookie(FACEBOOK_URL);
@@ -475,8 +472,6 @@ public class WebActivity extends Activity implements Constants {
 
         // facebookのcookieを元に戻す
         cookieManager.setCookie(FACEBOOK_URL, fCookie);
-
-//        Log.d("");
 
     }
 

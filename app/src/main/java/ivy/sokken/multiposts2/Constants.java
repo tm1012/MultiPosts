@@ -1,4 +1,4 @@
-package ivy.sokken.multiposts;
+package ivy.sokken.multiposts2;
 
 
 public interface Constants {
@@ -16,29 +16,31 @@ public interface Constants {
     String TWITTER_URL = "https://mobile.twitter.com/";
     String TWITTER_LOGIN_URL = "https://mobile.twitter.com/session/new";
     String TWITTER_LOGOUT_URL = "http://mobile.twitter.com";
-    String TWITTER_USER_INPUT = "session[username_or_email]";
-    String TWITTER_PASS_INPUT = "session[password]";
+    String TWITTER_USER_INPUT_ID = "session[username_or_email]";
+    String TWITTER_PASS_INPUT_ID = "session[password]";
 
     String M_FACEBOOK_COM_URL = "m.facebook.com";
     String FACEBOOK_URL ="https://m.facebook.com";
-    String FACEBOOK_LOGIN_URL = "https://m.facebook.com";
+    String FACEBOOK_LOGIN_URL = "https://m.facebook.com/login.php";
     String FACEBOOK_LOGOUT_URL = "https://m.facebook.com/logout.php";
-    String FACEBOOK_USER_INPUT = "";
-    String FACEBOOK_PASS_INPUT = "";
+    String FACEBOOK_USER_INPUT_NAME = "email";
+    String FACEBOOK_PASS_INPUT_NAME = "pass";
 
     String MIXI_JP_URL = "";
-    String MIXI_URL = "";
-    String MIXI_LOGIN_URL = "";
+    String MIXI_URL = "mixi.jp";
+    String MIXI_LOGIN_URL = "mixi.jp";
     String MIXI_LOGOUT_URL = "";
     String MIXI_USER_INPUT = "";
     String MIXI_PASS_INPUT = "";
 
     String PLUS_GOOGLE_COM_URL = "plus.google.com";
     String GOOGLEPLUS_URL = "https://plus.google.com";
-    String GOOGLEPLUS_LOGIN_URL = "https://accounts.google.com/AddSession?continue=https://plus.google.com";
+    String GOOGLEPLUS_LOGIN_DOMAIN = "accounts.google.com";
+    String GOOGLEPLUS_LOGIN_URL = "https://accounts.google.com/ServiceLogin?continue=https%3A%2F%2Fplus.google.com";
     String GOOGLEPLUS_LOGOUT_URL = ".com/accounts/Logout";
-    String GOOGLEPLUS_USER_INPUT = "";
-    String GOOGLEPLUS_PASS_INPUT = "";
+    String GOOGLEPLUS_USER_INPUT_ID = "Email";
+    String GOOGLEPLUS_PASS_INPUT_ID = "Passwd";
+    String GOOGLEPLUS_FORM_ID = "gaia_loginform";
 
 
     String YOUTUBE_URL = "youtube.com/";

@@ -1,4 +1,4 @@
-package ivy.sokken.multiposts;
+package ivy.sokken.multiposts2;
 
 import android.app.Activity;
 import android.content.Intent;
