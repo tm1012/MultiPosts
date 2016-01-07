@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ivy.sokken.multiposts2" >
+    package="ivy.sokken.multiposts" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -18,13 +18,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/AppTheme.NoActionBar"
         android:hardwareAccelerated="true" >
         <activity
-            android:name="ivy.sokken.multiposts2.MainActivity"
+            android:name="ivy.sokken.multiposts.MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,11 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ivy.sokken.multiposts2.WebActivity"
-            android:screenOrientation="unspecified"
-            android:configChanges="orientation|screenSize" />
-        <activity
-            android:name="ivy.sokken.multiposts2.TestActivity"
+            android:name="ivy.sokken.multiposts.WebActivity"
             android:screenOrientation="unspecified"
             android:configChanges="orientation|screenSize" />
     </application>

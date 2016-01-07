@@ -1,4 +1,4 @@
-package ivy.sokken.multiposts2;
+package ivy.sokken.multiposts;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -60,7 +60,6 @@ public class MainActivity extends Activity implements Constants {
                     intent.putExtra(PASS[i], rb[i].getHint());
                 }
 
-                //intent = new Intent(this, TestActivity.class);
                 startActivity(intent);
             default:
                 break;

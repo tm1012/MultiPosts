@@ -1,4 +1,4 @@
-package ivy.sokken.multiposts2;
+package ivy.sokken.multiposts;
 
 
 public interface Constants {
@@ -15,28 +15,34 @@ public interface Constants {
     String TWITTER_COM_URL = "twitter.com/";
     String TWITTER_URL = "https://mobile.twitter.com/";
     String TWITTER_LOGIN_URL = "https://mobile.twitter.com/session/new";
+    String TWITTER_LOGIN_CHECK_URL = "https://mobile.twitter.com/login/error";
+    String TWITTER_PASS_RESET_URL = "https://twitter.com/account/begin_password_reset";
     String TWITTER_LOGOUT_URL = "http://mobile.twitter.com";
     String TWITTER_USER_INPUT_ID = "session[username_or_email]";
     String TWITTER_PASS_INPUT_ID = "session[password]";
 
     String M_FACEBOOK_COM_URL = "m.facebook.com";
-    String FACEBOOK_URL ="https://m.facebook.com";
+    String M_FACEBOOK_URL ="https://m.facebook.com";
     String FACEBOOK_LOGIN_URL = "https://m.facebook.com/login.php";
+    String FACEBOOK_LOGIN_CHECK_URL = "https://m.facebook.com/login/";
     String FACEBOOK_LOGOUT_URL = "https://m.facebook.com/logout.php";
     String FACEBOOK_USER_INPUT_NAME = "email";
     String FACEBOOK_PASS_INPUT_NAME = "pass";
 
-    String MIXI_JP_URL = "";
-    String MIXI_URL = "mixi.jp";
-    String MIXI_LOGIN_URL = "mixi.jp";
-    String MIXI_LOGOUT_URL = "";
-    String MIXI_USER_INPUT = "";
-    String MIXI_PASS_INPUT = "";
+    String MIXI_JP_URL = "mixi.jp";
+    String MIXI_URL = "https://mixi.jp/";
+    String MIXI_LOGIN_URL = "https://mixi.jp/";
+    String MIXI_LOGIN_CHECK_URL = "https://mixi.jp/login.pl?from=login";
+    String MIXI_LOGOUT_URL = "http://mixi.jp/logout.pl";
+    String MIXI_USER_INPUT_NAME = "email";
+    String MIXI_PASS_INPUT_NAME = "password";
+    String MIXI_FORM_NAME = "login_form";
 
     String PLUS_GOOGLE_COM_URL = "plus.google.com";
     String GOOGLEPLUS_URL = "https://plus.google.com";
     String GOOGLEPLUS_LOGIN_DOMAIN = "accounts.google.com";
     String GOOGLEPLUS_LOGIN_URL = "https://accounts.google.com/ServiceLogin?continue=https%3A%2F%2Fplus.google.com";
+    String GOOGLEPLUS_LOGIN_CHECK_URL = "https://accounts.google.com/ServiceLoginAuth";
     String GOOGLEPLUS_LOGOUT_URL = ".com/accounts/Logout";
     String GOOGLEPLUS_USER_INPUT_ID = "Email";
     String GOOGLEPLUS_PASS_INPUT_ID = "Passwd";

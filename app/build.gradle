@@ -4,7 +4,7 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
     defaultConfig {
-        applicationId 'ivy.sokken.multiposts2'
+        applicationId 'ivy.sokken.multiposts'
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1

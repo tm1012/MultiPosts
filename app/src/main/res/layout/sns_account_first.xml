@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/rl_sns_account_top">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/rl_sns_account_header">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="アカウント"
+            android:id="@+id/tv_sns_account_header_title"
+            android:textSize="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/black"
+            android:gravity="center" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="10px"
+            android:id="@+id/iv_sns_account_header_line"
+            android:src="@mipmap/dot_black"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:scaleType="centerCrop"
+            android:layout_below="@+id/tv_sns_account_header_title" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="サービスを開始するため、以下から\n1つ以上選択してください。"
+            android:id="@+id/tv_sns_account_header_info"
+            android:inputType="textMultiLine"
+            android:textSize="45px"
+            android:textColor="@android:color/black"
+            android:layout_below="@+id/iv_sns_account_header_line"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sv_sns_account_content"
+        android:layout_below="@+id/rl_sns_account_header"
+        android:fillViewport="true"
+        android:layout_above="@+id/rl_sns_account_footer">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_sns_account_services">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/ll_sns_account_twitter">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:id="@+id/ll_sns_account_header_twitter">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/iv_sns_account_logo_twitter"
+                        android:src="@mipmap/logo_twitter" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Twitter"
+                        android:id="@+id/tv_sns_account_text_twitter"
+                        android:textSize="50dp"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="150dp"
+                    android:id="@+id/ll_sns_account_accounts_twitter"
+                    android:longClickable="false">
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rg_sns_account_twitter">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="\@ivysokken"
+                            android:id="@+id/radioButton"
+                            android:textSize="30dp"
+                            android:hint="ilohas123"
+                            android:checked="true" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="\@darkivy2"
+                            android:id="@+id/radioButton2"
+                            android:textSize="30dp"
+                            android:hint="ilohas123" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/radioButton11"
+                            android:textSize="30dp"
+                            android:checked="true"
+                            android:text="aaaadsadas@sadasdas.com"
+                            android:hint="bbasdasdasdbb" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/radioButton6"
+                            android:textSize="30dp" />
+
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/ll_sns_account_facebook">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="50dp"
+                    android:id="@+id/ll_sns_account_header_facebook">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/iv_sns_account_logo_facebook"
+                        android:src="@mipmap/logo_facebook" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Facebook"
+                        android:id="@+id/tv_sns_account_text_facebook"
+                        android:textSize="50dp"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="150dp"
+                    android:id="@+id/ll_sns_account_accounts_facebook" >
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rg_sns_account_facebook" >
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ivytaro0123@gmail.com"
+                            android:id="@+id/radioButton3"
+                            android:textSize="30dp"
+                            android:hint="ilohas123"
+                            android:checked="true" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/radioButton12"
+                            android:textSize="30dp"
+                            android:checked="true"
+                            android:text="aaaa"
+                            android:hint="bbbb" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/radioButton7"
+                            android:textSize="30dp" />
+
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/ll_sns_account_mixi">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="50dp"
+                    android:id="@+id/ll_sns_account_header_mixi">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/iv_sns_account_logo_mixi"
+                        android:src="@mipmap/logo_mixi" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="mixi"
+                        android:id="@+id/tv_sns_account_text_mixi"
+                        android:textSize="50dp"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="150dp"
+                    android:id="@+id/ll_sns_account_accounts_mixi" >
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rg_sns_account_mixi" >
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/radioButton4"
+                            android:textSize="30dp"
+                            android:checked="true"
+                            android:text="park_19950125@docomo.ne.jp"
+                            android:hint="park_1995" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/radioButton10"
+                            android:textSize="30dp"
+                            android:checked="true"
+                            android:text="aaaa"
+                            android:hint="bbbb" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/radioButton8"
+                            android:textSize="30dp" />
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/ll_sns_account_google">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="50dp"
+                    android:id="@+id/ll_sns_account_header_google">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/iv_sns_account_logo_google"
+                        android:src="@mipmap/logo_googleplus" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Google"
+                        android:id="@+id/tv_sns_account_text_google"
+                        android:textSize="50dp"
+                        android:textColor="@android:color/black"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="150dp"
+                    android:id="@+id/ll_sns_account_accounts_google" >
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rg_sns_account_googleplus" >
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/radioButton5"
+                            android:textSize="30dp"
+                            android:checked="true"
+                            android:text="ivytaro0123@gmail.com"
+                            android:hint="ilohas123" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ivyaiko0123@gmail.com"
+                            android:id="@+id/radioButton50"
+                            android:textSize="30dp"
+                            android:hint="ilohas123" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="asdfgdfafsfafafafafa@gmail.com"
+                            android:id="@+id/radioButton13"
+                            android:textSize="30dp"
+                            android:hint="fasfafaeffert" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/radioButton9"
+                            android:textSize="30dp" />
+
+
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/rl_sns_account_footer">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="10px"
+            android:id="@+id/iv_sns_account_footer_line"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/dot_black"
+            android:layout_alignParentTop="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:id="@+id/iv_sns_account_footer_next"
+            android:src="@mipmap/sns_account_next"
+            android:layout_below="@+id/iv_sns_account_footer_line"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClick" />
+    </RelativeLayout>
+</RelativeLayout>

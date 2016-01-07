@@ -1,4 +1,4 @@
-package ivy.sokken.multiposts2;
+package ivy.sokken.multiposts;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

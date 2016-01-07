@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:text="クラウド選択"
+        android:id="@+id/cloudtextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="50dp"
+        android:textColor="@android:color/black"
+        android:gravity="center_vertical" />
+
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:id="@+id/returnimageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@mipmap/return_100"
+        android:onClick="onClick" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:id="@+id/blacklineView"
+        android:layout_below="@+id/cloudtextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@android:color/black" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/blacklineView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/linearLayout21">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="サービス開始のため、以下から"
+            android:id="@+id/textView23"
+            android:layout_weight="1"
+            android:textSize="50dp"
+            android:gravity="center_vertical" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="1つ以上選択してください."
+            android:id="@+id/textView24"
+            android:layout_weight="1"
+            android:textSize="50dp"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="780dp"
+        android:id="@+id/linearLayout21"
+        android:layout_above="@+id/nextimageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="440dp"
+            android:layout_height="match_parent"
+            android:id="@+id/onedriveView"
+            android:src="db @mipmap/onedrivetxt"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:onClick="onClick" />
+
+        <ImageView
+            android:layout_width="550dp"
+            android:layout_height="match_parent"
+            android:id="@+id/dropboxView"
+            android:src="@mipmap/dropboxtxt"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:onClick="onClick" />
+
+        <ImageView
+            android:layout_width="465dp"
+            android:layout_height="match_parent"
+            android:id="@+id/googledriveView"
+            android:src="@mipmap/googledrivetxt"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:onClick="onClick" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:id="@+id/nextimageView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/top_next"
+        android:onClick="onClick" />
+
+</RelativeLayout>
