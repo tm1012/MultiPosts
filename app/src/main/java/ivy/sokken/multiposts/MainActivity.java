@@ -37,7 +37,7 @@ public class MainActivity extends Activity implements Constants {
                 break;
 
             case R.id.iv_main_sns:
-                setContentView(R.layout.sns_account);
+                setContentView(R.layout.sns_account_first);
                 break;
 
 

@@ -6,6 +6,10 @@ public interface Constants {
     int FACEBOOK = 1;
     int MIXI = 2;
     int GOOGLEPLUS = 3;
+    int ONEDRIVE = 4;
+    int GOOGLEDRIVE = 5;
+    int DROPBOX = 6;
+    int MAIL = 7;
 
     String FIREFOX = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0";
     String ANDROID_3_0_1 = "Mozilla/5.0 (Linux; U; Android 3.0; ja-jp; Xoom Build/HRI39) AppleWebKit/525.10  (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2";

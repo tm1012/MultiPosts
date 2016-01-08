@@ -13,13 +13,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.webkit.ValueCallback;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import org.xwalk.core.XWalkCookieManager;
 import org.xwalk.core.XWalkResourceClient;
@@ -29,6 +27,8 @@ import org.xwalk.core.XWalkView;
 public class WebActivity extends Activity implements Constants {
 
 
+    private boolean debug = true;
+
     private XWalkView[] xWalkViews = new XWalkView[4];               // XWalkView
     private ImageView[] iv = new ImageView[4];                        // 下部ボタン
     private int showFlag = -1;                                       // XWalkView表示フラグ
@@ -36,7 +36,9 @@ public class WebActivity extends Activity implements Constants {
     private ValueCallback<Uri> mUploadMessage;                      // アップロードファイル
     private FrameLayout fl;                                           // XWalkView表示用枠
     private XWalkCookieManager cookieManager;                       // クッキー操作変数（リログイン用）
-    private boolean debug = true;
+
+    private boolean[] logined = new boolean[4];                   // ログイン成否
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class WebActivity extends Activity implements Constants {
         for (int i = 0; i < USER.length; i++) {
             USER_ACCOUNT[i][0] = intent.getStringExtra(USER[i]);
             USER_ACCOUNT[i][1] = intent.getStringExtra(PASS[i]);
+            logined[i] = true;
         }
 
         // View取得
@@ -331,28 +334,40 @@ public class WebActivity extends Activity implements Constants {
             int js = -1;
 
 
-            if ( url.contains(TWITTER_LOGIN_CHECK_URL) && url.contains("username_or_email") ) {
+
+            if // Twitterログインエラー
+               ( url.contains(TWITTER_LOGIN_CHECK_URL) && url.contains("username_or_email") ) {
                 Select_View = TWITTER;
+                logined[Select_View] = false;
                 xview.load("javascript:document.getElementsByTagName(\"body\")[0].innerHTML = \"入力されたユーザー名またはパスワードに誤りがあります。\";", null);
             }
-            else if ( url.contains(TWITTER_PASS_RESET_URL) && url.contains("username_or_email") ) {
+            else // Twitterログインエラーパスワードリセット
+                if ( url.contains(TWITTER_PASS_RESET_URL) && url.contains("username_or_email") ) {
                 Select_View = TWITTER;
+                logined[Select_View] = false;
             }
-            else if ( url.contains(FACEBOOK_LOGIN_CHECK_URL) ) {
+            else // Facebookログインエラー
+                if ( url.contains(FACEBOOK_LOGIN_CHECK_URL) ) {
                 Select_View = FACEBOOK;
+                logined[Select_View] = false;
                 xview.load("javascript:document.getElementsByTagName(\"body\")[0].innerHTML = \"入力されたメールアドレスまたは携帯電話番号はアカウントと一致しません。\";", null);
             }
-            else if ( url.contains(MIXI_LOGIN_CHECK_URL ) && url.charAt(url.length()-2) != '0' ) {
+            else // mixiログインエラー
+                if ( url.contains(MIXI_LOGIN_CHECK_URL ) && url.charAt(url.length()-2) != '0' ) {
                 Select_View = MIXI;
+                logined[Select_View] = false;
                 xview.load("javascript:document.getElementsByTagName(\"body\")[0].innerHTML = document.getElementById(\"errorArea\").innerHTML;", null);
             }
-            else if ( url.contains(GOOGLEPLUS_LOGIN_CHECK_URL )) {
+            else // Google+ログインエラー
+                if ( url.contains(GOOGLEPLUS_LOGIN_CHECK_URL )) {
                 Select_View = GOOGLEPLUS;
+                logined[Select_View] = false;
                 xview.load("javascript:document.getElementsByTagName(\"body\")[0].innerHTML = document.getElementById(\"errormsg_0_Passwd\").innerHTML;", null);
             }
 
-            else if   // Twitterログイン画面 オートログイン処理
-                   (url.equals(TWITTER_LOGIN_URL)) {js = TWITTER;}
+
+            else // Twitterログイン画面 オートログイン処理
+                if (url.equals(TWITTER_LOGIN_URL)) {js = TWITTER;}
 
             else // Facebookログイン画面 オートログイン処理
                 if (url.contains(FACEBOOK_LOGIN_URL) ) {js = FACEBOOK;}
@@ -391,7 +406,13 @@ public class WebActivity extends Activity implements Constants {
 
 
                 if // ログイン画面以外はボタン有効化
-                    ( !iv[Select_View].isEnabled() ) ButtonEnable(true, iv[Select_View]);
+                    ( !iv[Select_View].isEnabled() ) {
+                    // ブラウザバック時にログイン画面を表示させない
+                    xview.getNavigationHistory().clear();
+
+                    // 下部ボタンを有効にする
+                    ButtonEnable(true, iv[Select_View]);
+                }
             }
 
             else // jsに変更があれば自動ログイン用Javascriptを実行
@@ -455,18 +476,19 @@ public class WebActivity extends Activity implements Constants {
         // 下部ボタン長押し処理
         @Override
         public boolean onLongClick(View v) {
+
             switch (v.getId()) {
                 case R.id.iv_webbrows_twitter:      // Twitter
-                    xWalkViews[TWITTER].load(TWITTER_URL, null);
+                    if (logined[TWITTER]) xWalkViews[TWITTER].load(TWITTER_URL, null);
                     break;
                 case R.id.iv_webbrows_facebook:     // Facebook
-                    xWalkViews[FACEBOOK].load(M_FACEBOOK_URL, null);
+                    if (logined[FACEBOOK]) xWalkViews[FACEBOOK].load(M_FACEBOOK_URL, null);
                     break;
                 case R.id.iv_webbrows_mixi:         // mixi
-                    xWalkViews[MIXI].load(MIXI_URL, null);
+                    if (logined[MIXI]) xWalkViews[MIXI].load(MIXI_URL, null);
                     break;
                 case R.id.iv_webbrows_googleplus:  // Google+
-                    xWalkViews[GOOGLEPLUS].load(GOOGLEPLUS_URL, null);
+                    if (logined[GOOGLEPLUS]) xWalkViews[GOOGLEPLUS].load(GOOGLEPLUS_URL, null);
                     break;
                 case R.id.iv_webbrows_home:         // ホームボタン
                     break;
